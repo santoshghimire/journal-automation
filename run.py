@@ -3,13 +3,13 @@ from entity.Journal import Journal
 from entity.JournalItem import JournalItem
 
 """ webservices acess key"""
-ws_access_key = "92ED8EFB24944F6A8FFD3CCF13B52C99"
+ws_access_key = "B6FEC20CDB084497B8773EA34056A23E"
 
 """ file uid """
-fileuid = "68934"
+fileuid = "68914"
 
 """ Need to update journal"""
-uid_to_update = "81827857"
+uid_to_update = "81832338"
 
 """ Instantiate SaasuAPI"""
 saasu_api = SaasuAPI(ws_access_key, fileuid)
@@ -22,15 +22,15 @@ saasu_api = SaasuAPI(ws_access_key, fileuid)
 
 """ Instantiate Journal Item and assign values"""
 journal_item1 = JournalItem()
-journal_item1.account_uid = "2674400"
+journal_item1.account_uid = "2673445"
 journal_item1.tax_code = '0'
-journal_item1.amount = "1200.00"
+journal_item1.amount = "12.00"
 journal_item1.card_type = 'Credit'
 
 journal_item2 = JournalItem()
-journal_item2.account_uid = "2674400"
+journal_item2.account_uid = "2673445"
 journal_item2.tax_code = '0'
-journal_item2.amount = "1200.00"
+journal_item2.amount = "12.00"
 journal_item2.card_type = 'Debit'
 
 """ Create list of journal item list"""
@@ -41,7 +41,7 @@ journal_item_list = [journal_item1, journal_item2]
 journal = Journal(operation='insert', journal_items=journal_item_list)
 journal.date = "2016/09/10"
 journal.tags = "tags"
-journal.summary = "journal1"
+journal.summary = "journal2 "
 journal.notes = "notes"
 journal.requires_follow_up = "false"
 journal.reference = "This is ref"
