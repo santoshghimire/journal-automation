@@ -2,17 +2,25 @@ from SaasuAPI import SaasuAPI
 from entity.Journal import Journal
 from entity.JournalItem import JournalItem
 
-""" webservices acess key"""
-ws_access_key = "B6FEC20CDB084497B8773EA34056A23E"
+import json
+
+with open('settings/api_config.json') as api_connection_data:
+    api_connection_data = json.load(api_connection_data)
+
+print (api_connection_data['ws_access_key'])
+print (api_connection_data['file_uid'][0])
+
+# """ webservices acess key"""
+ws_access_key = api_connection_data['ws_access_key']
 
 """ file uid """
-fileuid = "68914"
+file_uid = api_connection_data['file_uid'][0]
 
 """ Need to update journal"""
 uid_to_update = "81832338"
 
 """ Instantiate SaasuAPI"""
-saasu_api = SaasuAPI(ws_access_key, fileuid)
+saasu_api = SaasuAPI(ws_access_key, file_uid)
 
 # to get entity_data
 # entity_xml = saasu_api.get_entity('journal', uid)
