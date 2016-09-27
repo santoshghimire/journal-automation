@@ -16,7 +16,7 @@ class Journal:
         self.requires_follow_up = False
         self.journal_items = [str(x) for x in journal_items]
         self.journal_items = "\n".join(self.journal_items)
-        self.currency = None
+        self.currency = '41'
         self.auto_populate_fx_rate = False,
         self.fc_to_bc_fx_rate = None,
         self.reference = None
@@ -56,13 +56,13 @@ class Journal:
 
             return str(self.journal_xml).format(
                 self.date, self.tags, self.summary,
-                self.notes, self.requires_follow_up,
+                self.notes, self.currency, self.requires_follow_up,
                 self.reference, self.journal_items
             )
         if self.operation == 'update':
             return str(self.journal_xml).format(
                 self.uid, self.last_update_uid,
                 self.date, self.tags, self.summary,
-                self.notes, self.requires_follow_up,
+                self.notes, self.currency,  self.requires_follow_up,
                 self.reference, self.journal_items,
             )
