@@ -20,16 +20,28 @@ class SaasuAPI:
             url_dict_param = self.url_dict_param
         return "{}?{}".format(base_url, urllib.urlencode(url_dict_param))
 
-    def save_entity(self, entity_xml_data):
+    def save_entity(self, entity_xml_data, journal_number):
         url = self.build_api_url('Tasks', url_dict_param=None)
         api_connection_url = "{}{}".format(self.web_services_url, url)
 
         # set what your server accepts
         headers = {'Content-Type': 'application/xml'}
 
-        print requests.post(api_connection_url,
-                            data=entity_xml_data,
-                            headers=headers).text
+        response = requests.post(api_connection_url,
+                                 data=entity_xml_data,
+                                 headers=headers)
+
+        soup = BeautifulSoup(response.text, 'lxml')
+        message = ""
+
+        if '<errors>' in response.text:
+                error_msg = soup.message.text
+                message = "Journal Number :[{}] INSERT FAILED : {}!!".format(
+                    journal_number, error_msg)
+        else:
+            message = " Journal Number :[{}] INSERT SUCCESSFUL !!".format(
+                journal_number)
+        print message
 
     def get_entity(self, entity_name, uid):
         entity_name = entity_name.lower().title()

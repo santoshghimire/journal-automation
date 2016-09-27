@@ -6,10 +6,10 @@ class JournalItem:
 
     def __init__(self):
         self.journal_item_xml = JournalItemXml()
-        self.account_uid = None
-        self.tax_code = None
-        self.amount = None
-        self.card_type = None
+        self.account_uid = ""
+        self.tax_code = ""
+        self.amount = ""
+        self.card_type = ""
 
     def get_account_uid(self):
         return self.account_uid

@@ -22,6 +22,8 @@ class JournalXml:
                     <tags>{}</tags>
                     <summary>{}</summary>
                     <notes>{}</notes>
+                    <ccy>{}</ccy>
+                    <autoPopulateFxRate>true</autoPopulateFxRate>
                     <requiresFollowUp>{}</requiresFollowUp>
                     <reference>{}</reference>
                     <journalItems>{}</journalItems>
