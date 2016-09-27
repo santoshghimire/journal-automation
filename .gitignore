@@ -93,3 +93,5 @@ ENV/
 .idea
 
 settings/api_config.json
+settings/account_settings.json
+csv/journal_list.csv
