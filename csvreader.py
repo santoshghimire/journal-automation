@@ -3,6 +3,8 @@ from SaasuAPI import SaasuAPI
 from entity.Journal import Journal
 from entity.JournalItem import JournalItem
 import json
+
+
 class CSVReader:
 
     def __init__(self, csv_path):
@@ -78,11 +80,14 @@ class CSVReader:
                 journal_item = JournalItem()
                 journal_item.card_type = item['card_type']
                 journal_item.tax_code = item['tax_code']
-                journal_item.amount = item['amount']
-                journal_item.account_uid = self.account_settings[item['account_name']]
+                journal_item.amount = float(item['amount'])
+                journal_item.account_uid = self.account_settings[
+                    item['account_name']
+                ]
                 journal_items_object_list.append(journal_item)
 
-            journal = Journal(operation='insert', journal_items=journal_items_object_list)
+            journal = Journal(operation='insert',
+                              journal_items=journal_items_object_list)
 
             journal.date = journal_dict[journal_number]['journal']['date']
             journal.tags = journal_dict[journal_number]['journal']['tags']
@@ -90,7 +95,3 @@ class CSVReader:
             journal.currency = journal_dict[journal_number]['journal']['currency']
 
             self.saasu_api.save_entity(str(journal), journal_number)
-
-
-
-

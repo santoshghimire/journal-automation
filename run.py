@@ -8,7 +8,3 @@ if __name__ == "__main__":
         raise ValueError('csv file path not given')
 
     CSVReader(csv_path)
-
-
-
-
