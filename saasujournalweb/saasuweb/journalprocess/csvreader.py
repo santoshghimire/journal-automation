@@ -9,10 +9,10 @@ class CSVReader:
 
     def __init__(self, csv_path):
 
-        with open('../settings/api_config.json') as api_connection_data:
+        with open('settings/api_config.json') as api_connection_data:
             api_connection_data = json.load(api_connection_data)
 
-        with open('../settings/account_settings.json') as account_settings:
+        with open('settings/account_settings.json') as account_settings:
             self.account_settings = json.load(account_settings)
 
         # """ webservices acess key"""
@@ -81,9 +81,17 @@ class CSVReader:
                 journal_item.card_type = item['card_type']
                 journal_item.tax_code = item['tax_code']
                 journal_item.amount = float(item['amount'])
-                journal_item.account_uid = self.account_settings[
-                    item['account_name']
-                ]
+                try:
+                    journal_item.account_uid = self.account_settings[
+                        item['account_name']
+                    ]
+                except:
+                    print("*"*40)
+                    print("ERROR !! Account [{}] for Journal number [{}] "
+                          "not exist in account settings".format(
+                            item['account_name'], journal_number))
+                    print("*"*40)
+
                 journal_items_object_list.append(journal_item)
 
             journal = Journal(operation='insert',

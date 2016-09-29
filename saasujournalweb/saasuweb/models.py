@@ -2,14 +2,19 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-
+from .validators import FileValidator
 # Create your models here.
 
+
 class CSVInput(models.Model):
+
     class Meta:
         db_table = 'csv_files'
 
-    csv_file = models.FileField(upload_to="csv/")
+    csv_file = models.FileField(upload_to="csv/",
+                                validators=[FileValidator(allowed_extensions=['csv']),
+                                            FileValidator(max_size_=24*1024*1024)])
+    # csv_file = models.FileField(upload_to="csv/", validators=[validate_file_extension])
     created_at = models.DateField(
         auto_now_add=True, editable=False
     )

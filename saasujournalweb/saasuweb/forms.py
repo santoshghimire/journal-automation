@@ -3,7 +3,7 @@ from django import forms
 from .models import CSVInput
 
 from .journalprocess.csvreader import CSVReader
-
+import os
 
 class CSVForm(forms.ModelForm):
 
@@ -11,9 +11,12 @@ class CSVForm(forms.ModelForm):
     #     super(CSVForm, self).__init__(*args, **kwargs)
     #     self.fields['csv_file'].required = True
     #
+
+
     class Meta:
         model = CSVInput
         fields = ('csv_file',)
+
 
     def save(self, commit=True):
         """ This is override method of ModelForm.
