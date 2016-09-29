@@ -41,7 +41,7 @@ class SaasuAPI:
         else:
             message = " Journal Number :[{}] INSERT SUCCESSFUL !!".format(
                 journal_number)
-        print message
+        print (message)
 
     def get_entity(self, entity_name, uid):
         entity_name = entity_name.lower().title()

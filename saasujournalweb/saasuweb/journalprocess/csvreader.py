@@ -1,7 +1,7 @@
 import csv
-from SaasuAPI import SaasuAPI
-from entity.Journal import Journal
-from entity.JournalItem import JournalItem
+from .SaasuAPI import SaasuAPI
+from .entity.Journal import Journal
+from .entity.JournalItem import JournalItem
 import json
 
 
@@ -9,10 +9,10 @@ class CSVReader:
 
     def __init__(self, csv_path):
 
-        with open('settings/api_config.json') as api_connection_data:
+        with open('../settings/api_config.json') as api_connection_data:
             api_connection_data = json.load(api_connection_data)
 
-        with open('settings/account_settings.json') as account_settings:
+        with open('../settings/account_settings.json') as account_settings:
             self.account_settings = json.load(account_settings)
 
         # """ webservices acess key"""

@@ -1,4 +1,4 @@
-from entityxml.JournalXml import JournalXml
+from ..entityxml.JournalXml import JournalXml
 
 
 class Journal:

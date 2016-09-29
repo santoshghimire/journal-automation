@@ -1,5 +1,5 @@
 
-from entityxml.JournalItemXml import JournalItemXml
+from ..entityxml.JournalItemXml import JournalItemXml
 
 
 class JournalItem:
