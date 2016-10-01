@@ -1,7 +1,0 @@
-journal_number,date,summary,tags,currency,amount,debit/credit,account_name,tax_code
-1,09/09/16,Internet bank transfer,internet bank transfer,AUD,400.00,Debit,Asset: Inventory,G1 Sale inc GST
-1,09/09/16,Internet bank transfer,internet bank transfer,AUD,400.00,Debit,Asset: Inventory,G1 Sale inc GST
-1,09/09/16,Internet bank transfer,internet bank transfer,AUD,800.00,Credit,Asset: Inventory,G1 Sale inc GST
-2,09/09/16,Internet bank transfer,internet bank transfer,AUD,400.00,Debit,Asset: Inventory,G1 Sale inc GST
-2,09/09/16,Internet bank transfer,internet bank transfer,AUD,400.00,Debit,Asset: Inventory,G1 Sale inc GST
-2,09/09/16,Internet bank transfer,internet bank transfer,AUD,800.00,Credit,Asset: Inventory,G1 Sale inc GST
