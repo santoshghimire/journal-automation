@@ -5,14 +5,18 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class CSVCreateView(FormView):
+class CSVCreateView(LoginRequiredMixin, FormView):
+
     form_class = CSVForm
     model = CSVInput
     template_name = "csvform.html"
     success_url = reverse_lazy('saasu:csvupload')
     success_message = "sucessfully upload"
+
+
 
     def form_valid(self, form):
 
@@ -36,3 +40,4 @@ class CSVCreateView(FormView):
     def csv_upload(self):
 
         return render(self.request, 'csvform.html')
+
