@@ -73,3 +73,5 @@ saasuweb/media/
 
 
 
+saasuweb/settings/account_settings.json
+saasuweb/settings/api_config.json
