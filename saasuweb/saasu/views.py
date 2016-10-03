@@ -4,6 +4,7 @@ from .forms import CSVForm
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
 
 
 class CSVCreateView(FormView):
@@ -31,3 +32,7 @@ class CSVCreateView(FormView):
         # return HttpResponseRedirect(self.get_success_url())
 
         return super(CSVCreateView, self).form_valid(form)
+
+    def csv_upload(self):
+
+        return render(self.request, 'csvform.html')

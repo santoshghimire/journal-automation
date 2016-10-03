@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^users/', include('saasuweb.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^csv', include('saasu.urls'), name='saasu'),
-    url(r'^saasu/', include('saasu.urls')),
+
 
 
 
